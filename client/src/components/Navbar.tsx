@@ -1,9 +1,9 @@
-import { Shield, BookOpen, Trophy, Play, FileText, CheckCircle2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Shield, BookOpen, Play, FileText, CheckCircle2, RotateCcw, ShieldAlert } from 'lucide-react';
 
 interface NavbarProps {
-  activeTab: 'decks' | 'study' | 'quiz' | 'cheatsheet';
-  setActiveTab: (tab: 'decks' | 'study' | 'quiz' | 'cheatsheet') => void;
+  activeTab: 'decks' | 'study' | 'quiz' | 'cheatsheet' | 'qa';
+  setActiveTab: (tab: 'decks' | 'study' | 'quiz' | 'cheatsheet' | 'qa') => void;
   masteredCount: number;
   totalCount: number;
   onResetProgress: () => void;
@@ -34,7 +34,7 @@ export function Navbar({ activeTab, setActiveTab, masteredCount, totalCount, onR
                 EXAM PREP
               </span>
             </div>
-            <p className="text-xs text-slate-400">Security+ Flashcard & Progress Mastery</p>
+            <p className="text-xs text-slate-400">Security+ Flashcard & QA Mastery</p>
           </div>
         </div>
 
@@ -42,7 +42,7 @@ export function Navbar({ activeTab, setActiveTab, masteredCount, totalCount, onR
         <nav className="hidden md:flex items-center space-x-1 bg-slate-800/60 p-1 rounded-xl border border-slate-700/50">
           <button
             onClick={() => setActiveTab('decks')}
-            className={`flex items-center space-x-2 px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+            className={`flex items-center space-x-2 px-3 py-2 rounded-lg text-xs md:text-sm font-medium transition-all ${
               activeTab === 'decks'
                 ? 'bg-blue-600 text-white shadow-md shadow-blue-600/30'
                 : 'text-slate-300 hover:text-white hover:bg-slate-700/50'
@@ -54,7 +54,7 @@ export function Navbar({ activeTab, setActiveTab, masteredCount, totalCount, onR
 
           <button
             onClick={() => setActiveTab('quiz')}
-            className={`flex items-center space-x-2 px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+            className={`flex items-center space-x-2 px-3 py-2 rounded-lg text-xs md:text-sm font-medium transition-all ${
               activeTab === 'quiz'
                 ? 'bg-blue-600 text-white shadow-md shadow-blue-600/30'
                 : 'text-slate-300 hover:text-white hover:bg-slate-700/50'
@@ -66,14 +66,26 @@ export function Navbar({ activeTab, setActiveTab, masteredCount, totalCount, onR
 
           <button
             onClick={() => setActiveTab('cheatsheet')}
-            className={`flex items-center space-x-2 px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+            className={`flex items-center space-x-2 px-3 py-2 rounded-lg text-xs md:text-sm font-medium transition-all ${
               activeTab === 'cheatsheet'
                 ? 'bg-blue-600 text-white shadow-md shadow-blue-600/30'
                 : 'text-slate-300 hover:text-white hover:bg-slate-700/50'
             }`}
           >
             <FileText className="w-4 h-4" />
-            <span>Ultimate Cheat Sheet</span>
+            <span>Cheat Sheet</span>
+          </button>
+
+          <button
+            onClick={() => setActiveTab('qa')}
+            className={`flex items-center space-x-2 px-3 py-2 rounded-lg text-xs md:text-sm font-medium transition-all ${
+              activeTab === 'qa'
+                ? 'bg-amber-600 text-white shadow-md shadow-amber-600/30'
+                : 'text-slate-300 hover:text-white hover:bg-slate-700/50'
+            }`}
+          >
+            <ShieldAlert className="w-4 h-4 text-amber-400" />
+            <span>QA & Traps</span>
           </button>
         </nav>
 
@@ -99,40 +111,10 @@ export function Navbar({ activeTab, setActiveTab, masteredCount, totalCount, onR
             className="border-slate-700 bg-slate-800/50 text-slate-300 hover:bg-slate-700 hover:text-white text-xs h-9 px-3"
             title="Reset progress data"
           >
-            Reset
+            <RotateCcw className="w-3.5 h-3.5 mr-1" />
+            <span>Reset</span>
           </Button>
         </div>
-      </div>
-
-      {/* Mobile Nav Bar */}
-      <div className="md:hidden flex items-center justify-around border-t border-slate-800 bg-slate-950/80 px-2 py-2">
-        <button
-          onClick={() => setActiveTab('decks')}
-          className={`flex flex-col items-center space-y-1 text-xs ${
-            activeTab === 'decks' ? 'text-blue-400 font-semibold' : 'text-slate-400'
-          }`}
-        >
-          <BookOpen className="w-4 h-4" />
-          <span>Decks</span>
-        </button>
-        <button
-          onClick={() => setActiveTab('quiz')}
-          className={`flex flex-col items-center space-y-1 text-xs ${
-            activeTab === 'quiz' ? 'text-blue-400 font-semibold' : 'text-slate-400'
-          }`}
-        >
-          <Play className="w-4 h-4" />
-          <span>Quiz</span>
-        </button>
-        <button
-          onClick={() => setActiveTab('cheatsheet')}
-          className={`flex flex-col items-center space-y-1 text-xs ${
-            activeTab === 'cheatsheet' ? 'text-blue-400 font-semibold' : 'text-slate-400'
-          }`}
-        >
-          <FileText className="w-4 h-4" />
-          <span>Cheat Sheet</span>
-        </button>
       </div>
     </header>
   );
