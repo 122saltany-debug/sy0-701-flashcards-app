@@ -5,19 +5,20 @@ export interface Flashcard {
   front: string;
   back: string;
   examTip?: string;
+  deepDive?: string;
 }
 
 export const FLASHCARD_CATEGORIES = [
-  { id: 'domain1', name: 'Domain 1: General Security Concepts', icon: 'ShieldCheck', count: 20, color: 'from-blue-600 to-indigo-600' },
-  { id: 'domain2', name: 'Domain 2: Threats, Vulnerabilities & Mitigations', icon: 'AlertTriangle', count: 18, color: 'from-amber-600 to-orange-600' },
-  { id: 'domain3', name: 'Domain 3: Security Architecture & Resilience', icon: 'Cloud', count: 18, color: 'from-emerald-600 to-teal-600' },
-  { id: 'domain4', name: 'Domain 4: Security Operations', icon: 'Terminal', count: 12, color: 'from-purple-600 to-pink-600' },
-  { id: 'domain5', name: 'Domain 5: Security Program & Governance', icon: 'Lock', count: 12, color: 'from-rose-600 to-red-600' },
+  { id: 'domain1', name: 'Domain 1: General Security Concepts', icon: 'ShieldCheck', count: 25, color: 'from-blue-600 to-indigo-600' },
+  { id: 'domain2', name: 'Domain 2: Threats, Vulnerabilities & Mitigations', icon: 'AlertTriangle', count: 22, color: 'from-amber-600 to-orange-600' },
+  { id: 'domain3', name: 'Domain 3: Security Architecture & Resilience', icon: 'Cloud', count: 22, color: 'from-emerald-600 to-teal-600' },
+  { id: 'domain4', name: 'Domain 4: Security Operations', icon: 'Terminal', count: 16, color: 'from-purple-600 to-pink-600' },
+  { id: 'domain5', name: 'Domain 5: Security Program & Governance', icon: 'Lock', count: 15, color: 'from-rose-600 to-red-600' },
 ];
 
 export const FLASHCARDS: Flashcard[] = [
   // ==========================================
-  // DOMAIN 1: General Security Concepts (20)
+  // DOMAIN 1: General Security Concepts (25)
   // ==========================================
   {
     id: 1,
@@ -25,7 +26,8 @@ export const FLASHCARDS: Flashcard[] = [
     categoryTitle: 'Domain 1: General Security Concepts',
     front: 'Cryptographic Solutions (PKI & Hashing)',
     back: 'Official Domain 1 focus: Includes Public Key Infrastructure (PKI), asymmetric/symmetric encryption, hashing (SHA-256 for integrity), and digital signatures (non-repudiation).',
-    examTip: 'Remember that cryptography is officially in Domain 1 (General Security Concepts), not Domain 3.'
+    examTip: 'Remember that cryptography is officially in Domain 1 (General Security Concepts), not Domain 3.',
+    deepDive: 'Symmetric encryption (AES) uses a shared secret key for confidentiality at speed. Asymmetric encryption (RSA, ECC) uses key pairs (public/private) for secure key exchange and digital signing.'
   },
   {
     id: 2,
@@ -33,7 +35,8 @@ export const FLASHCARDS: Flashcard[] = [
     categoryTitle: 'Domain 1: General Security Concepts',
     front: 'Zero Trust Architecture',
     back: 'Security model based on "never trust, always verify." Requires continuous validation of identity, device health, and context for every request.',
-    examTip: 'Zero Trust does not mean zero access; it means dynamic, continuous verification.'
+    examTip: 'Zero Trust does not mean zero access; it means dynamic, continuous per-request verification.',
+    deepDive: 'Core pillars include micro-segmentation, strict least-privilege access, continuous device posture checking, and assumed breach mindset.'
   },
   {
     id: 3,
@@ -179,12 +182,52 @@ export const FLASHCARDS: Flashcard[] = [
     back: 'Enables a user to authenticate once and access multiple independent systems without re-entering credentials.',
     examTip: 'Improves user experience but increases blast radius if the primary credential is breached.'
   },
-
-  // ==========================================
-  // DOMAIN 2: Threats, Vulnerabilities & Mitigations (18)
-  // ==========================================
   {
     id: 21,
+    category: 'domain1',
+    categoryTitle: 'Domain 1: General Security Concepts',
+    front: 'Steganography',
+    back: 'The practice of concealing secret messages, files, or data within ordinary, non-secret carrier files (such as images or audio).',
+    examTip: 'Differs from cryptography by hiding the *existence* of the message rather than its content.'
+  },
+  {
+    id: 22,
+    category: 'domain1',
+    categoryTitle: 'Domain 1: General Security Concepts',
+    front: 'Key Escrow',
+    back: 'An arrangement where cryptographic keys are securely stored with a trusted third party so an authorized entity can decrypt data if needed.',
+    examTip: 'Commonly used in corporate environments for employee data recovery.'
+  },
+  {
+    id: 23,
+    category: 'domain1',
+    categoryTitle: 'Domain 1: General Security Concepts',
+    front: 'Federated Identity Management',
+    back: 'A system linking a user\'s identity across multiple distinct security domains or organizations (e.g., Shibboleth, WS-Federation).',
+    examTip: 'Allows seamless enterprise partnership logins without provisioning duplicate accounts.'
+  },
+  {
+    id: 24,
+    category: 'domain1',
+    categoryTitle: 'Domain 1: General Security Concepts',
+    front: 'Mandatory vs. Discretionary Access Control',
+    back: 'DAC allows resource owners to set permissions. MAC strictly enforces system-wide security labels and clearance levels.',
+    examTip: 'MAC is used in high-security government and military environments.'
+  },
+  {
+    id: 25,
+    category: 'domain1',
+    categoryTitle: 'Domain 1: General Security Concepts',
+    front: 'Certificate Authority (CA)',
+    back: 'A trusted entity that issues digital certificates, verifying the ownership of public keys in PKI.',
+    examTip: 'If a CA is compromised, all certificates issued by it must be revoked.'
+  },
+
+  // ==========================================
+  // DOMAIN 2: Threats, Vulnerabilities & Mitigations (22)
+  // ==========================================
+  {
+    id: 26,
     category: 'domain2',
     categoryTitle: 'Domain 2: Threats, Vulnerabilities & Mitigations',
     front: 'Threat Actor Types',
@@ -192,7 +235,7 @@ export const FLASHCARDS: Flashcard[] = [
     examTip: 'APTs are well-funded, stealthy actors with long-term persistence goals.'
   },
   {
-    id: 22,
+    id: 27,
     category: 'domain2',
     categoryTitle: 'Domain 2: Threats, Vulnerabilities & Mitigations',
     front: '8 Official Vulnerability Categories',
@@ -200,7 +243,7 @@ export const FLASHCARDS: Flashcard[] = [
     examTip: 'CompTIA groups vulnerabilities into these core operational categories for exam questions.'
   },
   {
-    id: 23,
+    id: 28,
     category: 'domain2',
     categoryTitle: 'Domain 2: Threats, Vulnerabilities & Mitigations',
     front: 'SQL Injection (SQLi)',
@@ -208,7 +251,7 @@ export const FLASHCARDS: Flashcard[] = [
     examTip: 'Prevent SQLi using parameterized queries and prepared statements.'
   },
   {
-    id: 24,
+    id: 29,
     category: 'domain2',
     categoryTitle: 'Domain 2: Threats, Vulnerabilities & Mitigations',
     front: 'Cross-Site Scripting (XSS)',
@@ -216,7 +259,7 @@ export const FLASHCARDS: Flashcard[] = [
     examTip: 'Prevent XSS through rigorous input sanitization and output encoding.'
   },
   {
-    id: 25,
+    id: 30,
     category: 'domain2',
     categoryTitle: 'Domain 2: Threats, Vulnerabilities & Mitigations',
     front: 'Buffer Overflow',
@@ -224,7 +267,7 @@ export const FLASHCARDS: Flashcard[] = [
     examTip: 'Prevent using modern memory-safe languages and bounds checking.'
   },
   {
-    id: 26,
+    id: 31,
     category: 'domain2',
     categoryTitle: 'Domain 2: Threats, Vulnerabilities & Mitigations',
     front: 'Credential Stuffing & Brute-Force',
@@ -232,7 +275,7 @@ export const FLASHCARDS: Flashcard[] = [
     examTip: 'Mitigate with account lockout policies, rate limiting, and MFA.'
   },
   {
-    id: 27,
+    id: 32,
     category: 'domain2',
     categoryTitle: 'Domain 2: Threats, Vulnerabilities & Mitigations',
     front: 'Man-in-the-Middle (MitM) / On-Path',
@@ -240,7 +283,7 @@ export const FLASHCARDS: Flashcard[] = [
     examTip: 'Prevented using strong encryption (TLS) and certificate pinning.'
   },
   {
-    id: 28,
+    id: 33,
     category: 'domain2',
     categoryTitle: 'Domain 2: Threats, Vulnerabilities & Mitigations',
     front: 'Ransomware',
@@ -248,7 +291,7 @@ export const FLASHCARDS: Flashcard[] = [
     examTip: 'Best defense is immutable, offline backups combined with EDR and employee training.'
   },
   {
-    id: 29,
+    id: 34,
     category: 'domain2',
     categoryTitle: 'Domain 2: Threats, Vulnerabilities & Mitigations',
     front: 'Phishing, Vishing, & Smishing',
@@ -256,7 +299,7 @@ export const FLASHCARDS: Flashcard[] = [
     examTip: 'Focuses on manipulating human psychology rather than technical exploits.'
   },
   {
-    id: 30,
+    id: 35,
     category: 'domain2',
     categoryTitle: 'Domain 2: Threats, Vulnerabilities & Mitigations',
     front: 'Supply Chain Attack',
@@ -264,7 +307,7 @@ export const FLASHCARDS: Flashcard[] = [
     examTip: 'Highlighted heavily in SY0-701 regarding vendor risk management.'
   },
   {
-    id: 31,
+    id: 36,
     category: 'domain2',
     categoryTitle: 'Domain 2: Threats, Vulnerabilities & Mitigations',
     front: 'Zero-Day Vulnerability',
@@ -272,7 +315,7 @@ export const FLASHCARDS: Flashcard[] = [
     examTip: 'Mitigated by behavior-based EDR, sandboxing, and least privilege.'
   },
   {
-    id: 32,
+    id: 37,
     category: 'domain2',
     categoryTitle: 'Domain 2: Threats, Vulnerabilities & Mitigations',
     front: 'Insider Threat',
@@ -280,7 +323,7 @@ export const FLASHCARDS: Flashcard[] = [
     examTip: 'Mitigated via principle of least privilege, background checks, and user behavior analytics (UBA).'
   },
   {
-    id: 33,
+    id: 38,
     category: 'domain2',
     categoryTitle: 'Domain 2: Threats, Vulnerabilities & Mitigations',
     front: 'Watering Hole Attack',
@@ -288,7 +331,7 @@ export const FLASHCARDS: Flashcard[] = [
     examTip: 'Targeted attack vector leveraging trusted industry portals.'
   },
   {
-    id: 34,
+    id: 39,
     category: 'domain2',
     categoryTitle: 'Domain 2: Threats, Vulnerabilities & Mitigations',
     front: 'DDoS (Distributed Denial of Service)',
@@ -296,7 +339,7 @@ export const FLASHCARDS: Flashcard[] = [
     examTip: 'Mitigated using cloud scrubbing centers, CDN caching, and rate limiting.'
   },
   {
-    id: 35,
+    id: 40,
     category: 'domain2',
     categoryTitle: 'Domain 2: Threats, Vulnerabilities & Mitigations',
     front: 'DNS Poisoning / Spoofing',
@@ -304,7 +347,7 @@ export const FLASHCARDS: Flashcard[] = [
     examTip: 'Mitigated by deploying DNSSEC (DNS Security Extensions).'
   },
   {
-    id: 36,
+    id: 41,
     category: 'domain2',
     categoryTitle: 'Domain 2: Threats, Vulnerabilities & Mitigations',
     front: 'Session Hijacking',
@@ -312,7 +355,7 @@ export const FLASHCARDS: Flashcard[] = [
     examTip: 'Prevented using secure cookies (HttpOnly, Secure flags) and TLS.'
   },
   {
-    id: 37,
+    id: 42,
     category: 'domain2',
     categoryTitle: 'Domain 2: Threats, Vulnerabilities & Mitigations',
     front: 'False Positives vs. False Negatives',
@@ -320,19 +363,51 @@ export const FLASHCARDS: Flashcard[] = [
     examTip: 'False negatives are typically much more dangerous in security operations.'
   },
   {
-    id: 38,
+    id: 43,
     category: 'domain2',
     categoryTitle: 'Domain 2: Threats, Vulnerabilities & Mitigations',
     front: 'Worm vs. Trojan',
     back: 'Worm: Self-replicating malware requiring no user interaction. Trojan: Malware disguised as legitimate software.',
     examTip: 'Worms propagate across networks automatically; Trojans require user execution.'
   },
+  {
+    id: 44,
+    category: 'domain2',
+    categoryTitle: 'Domain 2: Threats, Vulnerabilities & Mitigations',
+    front: 'Cross-Site Request Forgery (CSRF / XSRF)',
+    back: 'Forces an authenticated user to execute unwanted actions on a web application in which they are currently logged in.',
+    examTip: 'Prevented by utilizing anti-CSRF tokens and SameSite cookie attributes.'
+  },
+  {
+    id: 45,
+    category: 'domain2',
+    categoryTitle: 'Domain 2: Threats, Vulnerabilities & Mitigations',
+    front: 'Privilege Escalation',
+    back: 'An attacker with lower-level access exploits a bug or misconfiguration to gain elevated administrative privileges.',
+    examTip: 'Can be vertical (user to admin) or horizontal (user to user).'
+  },
+  {
+    id: 46,
+    category: 'domain2',
+    categoryTitle: 'Domain 2: Threats, Vulnerabilities & Mitigations',
+    front: 'Typosquatting / URL Hijacking',
+    back: 'Registering domain names similar to common legitimate brands (e.g., g00gle.com) to trap mistyping users.',
+    examTip: 'Used in credential harvesting and phishing campaigns.'
+  },
+  {
+    id: 47,
+    category: 'domain2',
+    categoryTitle: 'Domain 2: Threats, Vulnerabilities & Mitigations',
+    front: 'Credential Harvesting',
+    back: 'The gathering of valid usernames and passwords through phishing, keyloggers, or compromised databases.',
+    examTip: 'Precursor to credential stuffing and account takeover attacks.'
+  },
 
   // ==========================================
-  // DOMAIN 3: Security Architecture & Resilience (18)
+  // DOMAIN 3: Security Architecture & Resilience (22)
   // ==========================================
   {
-    id: 39,
+    id: 48,
     category: 'domain3',
     categoryTitle: 'Domain 3: Security Architecture & Resilience',
     front: 'Resilience & Recovery (RTO / RPO)',
@@ -340,7 +415,7 @@ export const FLASHCARDS: Flashcard[] = [
     examTip: 'Core architecture metrics tested in disaster recovery scenarios.'
   },
   {
-    id: 40,
+    id: 49,
     category: 'domain3',
     categoryTitle: 'Domain 3: Security Architecture & Resilience',
     front: 'Disaster Recovery Sites',
@@ -348,7 +423,7 @@ export const FLASHCARDS: Flashcard[] = [
     examTip: 'Hot site = most expensive, fastest recovery. Cold site = cheapest, slowest recovery.'
   },
   {
-    id: 41,
+    id: 50,
     category: 'domain3',
     categoryTitle: 'Domain 3: Security Architecture & Resilience',
     front: 'Backup Strategies & The 3-2-1 Rule',
@@ -356,7 +431,7 @@ export const FLASHCARDS: Flashcard[] = [
     examTip: 'Incremental backups are fastest to create but slowest to restore; Full backups are slowest to create but fastest to restore.'
   },
   {
-    id: 42,
+    id: 51,
     category: 'domain3',
     categoryTitle: 'Domain 3: Security Architecture & Resilience',
     front: 'RAID Levels (0, 1, 5, 10)',
@@ -364,7 +439,7 @@ export const FLASHCARDS: Flashcard[] = [
     examTip: 'Know that RAID 0 provides zero fault tolerance.'
   },
   {
-    id: 43,
+    id: 52,
     category: 'domain3',
     categoryTitle: 'Domain 3: Security Architecture & Resilience',
     front: 'Cloud Service Models (IaaS, PaaS, SaaS)',
@@ -372,7 +447,7 @@ export const FLASHCARDS: Flashcard[] = [
     examTip: 'Remember the shared responsibility model: cloud provider secures *of* the cloud; customer secures *in* the cloud.'
   },
   {
-    id: 44,
+    id: 53,
     category: 'domain3',
     categoryTitle: 'Domain 3: Security Architecture & Resilience',
     front: 'CASB (Cloud Access Security Broker)',
@@ -380,7 +455,7 @@ export const FLASHCARDS: Flashcard[] = [
     examTip: 'Crucial for enterprise SaaS security governance.'
   },
   {
-    id: 45,
+    id: 54,
     category: 'domain3',
     categoryTitle: 'Domain 3: Security Architecture & Resilience',
     front: 'Infrastructure as Code (IaC)',
@@ -388,7 +463,7 @@ export const FLASHCARDS: Flashcard[] = [
     examTip: 'Prevents configuration drift and enables automated deployment security scanning.'
   },
   {
-    id: 46,
+    id: 55,
     category: 'domain3',
     categoryTitle: 'Domain 3: Security Architecture & Resilience',
     front: 'Software-Defined Networking (SDN)',
@@ -396,7 +471,7 @@ export const FLASHCARDS: Flashcard[] = [
     examTip: 'Allows dynamic micro-segmentation and firewall rule enforcement.'
   },
   {
-    id: 47,
+    id: 56,
     category: 'domain3',
     categoryTitle: 'Domain 3: Security Architecture & Resilience',
     front: 'DMZ / Screened Subnet',
@@ -404,7 +479,7 @@ export const FLASHCARDS: Flashcard[] = [
     examTip: 'Protects the internal LAN from direct compromise if public web servers are hacked.'
   },
   {
-    id: 48,
+    id: 57,
     category: 'domain3',
     categoryTitle: 'Domain 3: Security Architecture & Resilience',
     front: 'WAF vs. NGFW',
@@ -412,7 +487,7 @@ export const FLASHCARDS: Flashcard[] = [
     examTip: 'WAF protects web servers; NGFW protects network perimeters and internal segments.'
   },
   {
-    id: 49,
+    id: 58,
     category: 'domain3',
     categoryTitle: 'Domain 3: Security Architecture & Resilience',
     front: 'Micro-segmentation',
@@ -420,7 +495,7 @@ export const FLASHCARDS: Flashcard[] = [
     examTip: 'A foundational tenet of Zero Trust network architecture.'
   },
   {
-    id: 50,
+    id: 59,
     category: 'domain3',
     categoryTitle: 'Domain 3: Security Architecture & Resilience',
     front: 'High Availability (HA) & Redundancy',
@@ -428,7 +503,7 @@ export const FLASHCARDS: Flashcard[] = [
     examTip: 'Ensures operational uptime even during hardware or software failures.'
   },
   {
-    id: 51,
+    id: 60,
     category: 'domain3',
     categoryTitle: 'Domain 3: Security Architecture & Resilience',
     front: 'VPC (Virtual Private Cloud)',
@@ -436,7 +511,7 @@ export const FLASHCARDS: Flashcard[] = [
     examTip: 'Configured with custom route tables, internet gateways, and security groups.'
   },
   {
-    id: 52,
+    id: 61,
     category: 'domain3',
     categoryTitle: 'Domain 3: Security Architecture & Resilience',
     front: 'Air-Gapping',
@@ -444,7 +519,7 @@ export const FLASHCARDS: Flashcard[] = [
     examTip: 'Ultimate isolation for critical industrial control systems (ICS/SCADA) and backup vaults.'
   },
   {
-    id: 53,
+    id: 62,
     category: 'domain3',
     categoryTitle: 'Domain 3: Security Architecture & Resilience',
     front: 'EDR (Endpoint Detection & Response)',
@@ -452,7 +527,7 @@ export const FLASHCARDS: Flashcard[] = [
     examTip: 'Essential for stopping malware and fileless attacks on user workstations.'
   },
   {
-    id: 54,
+    id: 63,
     category: 'domain3',
     categoryTitle: 'Domain 3: Security Architecture & Resilience',
     front: 'SIEM (Security Information & Event Management)',
@@ -460,7 +535,7 @@ export const FLASHCARDS: Flashcard[] = [
     examTip: 'Acts as the enterprise "observer" for security event analysis.'
   },
   {
-    id: 55,
+    id: 64,
     category: 'domain3',
     categoryTitle: 'Domain 3: Security Architecture & Resilience',
     front: 'SOAR (Security Orchestration, Automation & Response)',
@@ -468,19 +543,51 @@ export const FLASHCARDS: Flashcard[] = [
     examTip: 'SIEM detects alerts; SOAR automatically executes responses.'
   },
   {
-    id: 56,
+    id: 65,
     category: 'domain3',
     categoryTitle: 'Domain 3: Security Architecture & Resilience',
     front: 'Network Access Control (NAC)',
     back: 'Enforces security posture compliance (antivirus, OS patches) before allowing devices to connect to the network.',
     examTip: 'Can automatically quarantine non-compliant devices to a guest VLAN.'
   },
+  {
+    id: 66,
+    category: 'domain3',
+    categoryTitle: 'Domain 3: Security Architecture & Resilience',
+    front: 'Load Balancer',
+    back: 'Distributes incoming network traffic across multiple backend servers to ensure high availability and prevent overload.',
+    examTip: 'Can perform SSL offloading to relieve backend servers from encryption overhead.'
+  },
+  {
+    id: 67,
+    category: 'domain3',
+    categoryTitle: 'Domain 3: Security Architecture & Resilience',
+    front: 'Honeypot Architecture',
+    back: 'A decoy system configured to lure attackers, record their techniques, and isolate them from production systems.',
+    examTip: 'Placed in untrusted zones like the DMZ or dedicated monitoring segments.'
+  },
+  {
+    id: 68,
+    category: 'domain3',
+    categoryTitle: 'Domain 3: Security Architecture & Resilience',
+    front: 'Forward vs. Reverse Proxy',
+    back: 'Forward proxy sits behind clients to control outbound internet access. Reverse proxy sits in front of servers to protect and load balance inbound traffic.',
+    examTip: 'Forward = client protection / filtering; Reverse = server protection / web gateway.'
+  },
+  {
+    id: 69,
+    category: 'domain3',
+    categoryTitle: 'Domain 3: Security Architecture & Resilience',
+    front: 'Bastion Host',
+    back: 'A hardened, specially designated computer on a network specifically designed and configured to withstand attacks.',
+    examTip: 'Usually placed in a DMZ as an entry point for administrative SSH access.'
+  },
 
   // ==========================================
-  // DOMAIN 4: Security Operations (12)
+  // DOMAIN 4: Security Operations (16)
   // ==========================================
   {
-    id: 57,
+    id: 70,
     category: 'domain4',
     categoryTitle: 'Domain 4: Security Operations',
     front: 'Order of Volatility',
@@ -488,7 +595,7 @@ export const FLASHCARDS: Flashcard[] = [
     examTip: 'RAM and CPU cache are lost upon reboot, so they must be captured first.'
   },
   {
-    id: 58,
+    id: 71,
     category: 'domain4',
     categoryTitle: 'Domain 4: Security Operations',
     front: 'Incident Response Lifecycle (NIST)',
@@ -496,7 +603,7 @@ export const FLASHCARDS: Flashcard[] = [
     examTip: 'Mnemonic: Please Do Contain Every Real Leak. Containment is always the immediate tactical priority.'
   },
   {
-    id: 59,
+    id: 72,
     category: 'domain4',
     categoryTitle: 'Domain 4: Security Operations',
     front: 'Digital Forensics & Chain of Custody',
@@ -504,7 +611,7 @@ export const FLASHCARDS: Flashcard[] = [
     examTip: 'Broken chain of custody can render digital evidence inadmissible in court.'
   },
   {
-    id: 60,
+    id: 73,
     category: 'domain4',
     categoryTitle: 'Domain 4: Security Operations',
     front: 'Asset Management',
@@ -512,7 +619,7 @@ export const FLASHCARDS: Flashcard[] = [
     examTip: 'You cannot secure what you do not know you have.'
   },
   {
-    id: 61,
+    id: 74,
     category: 'domain4',
     categoryTitle: 'Domain 4: Security Operations',
     front: 'Security Automation vs. Orchestration',
@@ -520,7 +627,7 @@ export const FLASHCARDS: Flashcard[] = [
     examTip: 'SOAR combines both to streamline Security Operations Center (SOC) efficiency.'
   },
   {
-    id: 62,
+    id: 75,
     category: 'domain4',
     categoryTitle: 'Domain 4: Security Operations',
     front: 'Vulnerability Management Lifecycle',
@@ -528,7 +635,7 @@ export const FLASHCARDS: Flashcard[] = [
     examTip: 'Continuous scanning and risk-based prioritization prevent catastrophic exploits.'
   },
   {
-    id: 63,
+    id: 76,
     category: 'domain4',
     categoryTitle: 'Domain 4: Security Operations',
     front: 'Penetration Testing vs. Vulnerability Scanning',
@@ -536,7 +643,7 @@ export const FLASHCARDS: Flashcard[] = [
     examTip: 'Scans find weaknesses; pentests prove business impact.'
   },
   {
-    id: 64,
+    id: 77,
     category: 'domain4',
     categoryTitle: 'Domain 4: Security Operations',
     front: 'Log Management & SIEM Correlation',
@@ -544,7 +651,7 @@ export const FLASHCARDS: Flashcard[] = [
     examTip: 'NTP synchronization (Port 123) is critical for accurate log timestamp analysis.'
   },
   {
-    id: 65,
+    id: 78,
     category: 'domain4',
     categoryTitle: 'Domain 4: Security Operations',
     front: 'Threat Intelligence Feeds',
@@ -552,7 +659,7 @@ export const FLASHCARDS: Flashcard[] = [
     examTip: 'STIX is the language/format; TAXII is the transport protocol.'
   },
   {
-    id: 66,
+    id: 79,
     category: 'domain4',
     categoryTitle: 'Domain 4: Security Operations',
     front: 'Change Management',
@@ -560,7 +667,7 @@ export const FLASHCARDS: Flashcard[] = [
     examTip: 'Prevents unauthorized or untested changes from breaking production environments.'
   },
   {
-    id: 67,
+    id: 80,
     category: 'domain4',
     categoryTitle: 'Domain 4: Security Operations',
     front: 'Security Awareness Training',
@@ -568,19 +675,51 @@ export const FLASHCARDS: Flashcard[] = [
     examTip: 'Addresses the human element as the primary security perimeter.'
   },
   {
-    id: 68,
+    id: 81,
     category: 'domain4',
     categoryTitle: 'Domain 4: Security Operations',
     front: 'Red, Blue, and Purple Teams',
     back: 'Red Team: Offensive attackers. Blue Team: Defensive operators. Purple Team: Collaborative cooperative testing.',
     examTip: 'Purple teaming ensures offensive insights immediately improve defensive detection rules.'
   },
+  {
+    id: 82,
+    category: 'domain4',
+    categoryTitle: 'Domain 4: Security Operations',
+    front: 'SIEM Log Parsing & Normalization',
+    back: 'Converting diverse log formats from different vendor hardware into a standardized schema for accurate correlation.',
+    examTip: 'Enables unified searching across heterogeneous firewall and server logs.'
+  },
+  {
+    id: 83,
+    category: 'domain4',
+    categoryTitle: 'Domain 4: Security Operations',
+    front: 'Credential Management Policies',
+    back: 'Enforcing password complexity, rotation intervals, multi-factor authentication, and prohibiting hardcoded credentials.',
+    examTip: 'Eliminates default credentials and weak passwords across enterprise assets.'
+  },
+  {
+    id: 84,
+    category: 'domain4',
+    categoryTitle: 'Domain 4: Security Operations',
+    front: 'Forensic Imaging (Bit-Stream Copy)',
+    back: 'Creating an exact sector-by-sector copy of a storage drive, including deleted files and slack space, without altering original data.',
+    examTip: 'Always compute cryptographic hashes (MD5/SHA-256) before and after imaging to prove integrity.'
+  },
+  {
+    id: 85,
+    category: 'domain4',
+    categoryTitle: 'Domain 4: Security Operations',
+    front: 'Continuous Monitoring',
+    back: 'Real-time automated oversight of network traffic, endpoint posture, and user behavior to detect anomalies instantly.',
+    examTip: 'Moves security posture from periodic point-in-time audits to continuous assurance.'
+  },
 
   // ==========================================
-  // DOMAIN 5: Security Program & Governance (12)
+  // DOMAIN 5: Security Program & Governance (15)
   // ==========================================
   {
-    id: 69,
+    id: 86,
     category: 'domain5',
     categoryTitle: 'Domain 5: Security Program & Governance',
     front: 'Risk Calculation (SLE, ARO, ALE)',
@@ -588,7 +727,7 @@ export const FLASHCARDS: Flashcard[] = [
     examTip: 'Master this formula for quantitative risk assessment questions.'
   },
   {
-    id: 70,
+    id: 87,
     category: 'domain5',
     categoryTitle: 'Domain 5: Security Program & Governance',
     front: 'Business Impact Analysis (BIA)',
@@ -596,7 +735,7 @@ export const FLASHCARDS: Flashcard[] = [
     examTip: 'BIA establishes the quantitative foundation for RTO and RPO metrics.'
   },
   {
-    id: 71,
+    id: 88,
     category: 'domain5',
     categoryTitle: 'Domain 5: Security Program & Governance',
     front: 'Risk Appetite, Tolerance, & Register',
@@ -604,7 +743,7 @@ export const FLASHCARDS: Flashcard[] = [
     examTip: 'Essential governance documentation for executive risk oversight.'
   },
   {
-    id: 72,
+    id: 89,
     category: 'domain5',
     categoryTitle: 'Domain 5: Security Program & Governance',
     front: 'Governance Document Hierarchy',
@@ -612,7 +751,7 @@ export const FLASHCARDS: Flashcard[] = [
     examTip: 'Know all 4 levels: Policies are mandatory, Standards are mandatory specs, Guidelines are optional.'
   },
   {
-    id: 73,
+    id: 90,
     category: 'domain5',
     categoryTitle: 'Domain 5: Security Program & Governance',
     front: 'Third-Party Risk & Agreements (SLA, MOU, NDA, SOC 2)',
@@ -620,7 +759,7 @@ export const FLASHCARDS: Flashcard[] = [
     examTip: 'Request SOC 2 Type II reports to audit cloud vendor security controls.'
   },
   {
-    id: 74,
+    id: 91,
     category: 'domain5',
     categoryTitle: 'Domain 5: Security Program & Governance',
     front: 'Risk Response Strategies',
@@ -628,7 +767,7 @@ export const FLASHCARDS: Flashcard[] = [
     examTip: 'Choose Mitigate when controls are cost-effective; choose Accept for low-impact, low-probability risks.'
   },
   {
-    id: 75,
+    id: 92,
     category: 'domain5',
     categoryTitle: 'Domain 5: Security Program & Governance',
     front: 'Privacy Regulations (GDPR, HIPAA, PCI DSS)',
@@ -636,7 +775,7 @@ export const FLASHCARDS: Flashcard[] = [
     examTip: 'Match regulations to their respective data types and jurisdictions.'
   },
   {
-    id: 76,
+    id: 93,
     category: 'domain5',
     categoryTitle: 'Domain 5: Security Program & Governance',
     front: 'Security Audit vs. Assessment',
@@ -644,7 +783,7 @@ export const FLASHCARDS: Flashcard[] = [
     examTip: 'Audit asks "Did we meet the requirement?" Assessment asks "How effective is our security posture?"'
   },
   {
-    id: 77,
+    id: 94,
     category: 'domain5',
     categoryTitle: 'Domain 5: Security Program & Governance',
     front: 'Security Metrics & KPIs',
@@ -652,7 +791,7 @@ export const FLASHCARDS: Flashcard[] = [
     examTip: 'Good metrics support executive decisions and show whether controls are improving risk.'
   },
   {
-    id: 78,
+    id: 95,
     category: 'domain5',
     categoryTitle: 'Domain 5: Security Program & Governance',
     front: 'Data Ownership Roles',
@@ -660,7 +799,7 @@ export const FLASHCARDS: Flashcard[] = [
     examTip: 'The owner is accountable for decisions; the custodian is responsible for implementation.'
   },
   {
-    id: 79,
+    id: 96,
     category: 'domain5',
     categoryTitle: 'Domain 5: Security Program & Governance',
     front: 'Security Awareness Program',
@@ -668,11 +807,35 @@ export const FLASHCARDS: Flashcard[] = [
     examTip: 'Annual training alone is weaker than short, role-based, continuously measured reinforcement.'
   },
   {
-    id: 80,
+    id: 97,
     category: 'domain5',
     categoryTitle: 'Domain 5: Security Program & Governance',
     front: 'Exception Management',
     back: 'A documented process for approving temporary deviations from a security policy, including business justification, compensating controls, an owner, and an expiration date.',
     examTip: 'Exceptions should be time-bounded and reviewed; they are not permanent policy bypasses.'
+  },
+  {
+    id: 98,
+    category: 'domain5',
+    categoryTitle: 'Domain 5: Security Program & Governance',
+    front: 'Due Diligence vs. Due Care',
+    back: 'Due Diligence is investigating and researching risks (doing your homework). Due Care is implementing the required security controls (taking action).',
+    examTip: 'Diligence = Researching risks; Care = Acting on them.'
+  },
+  {
+    id: 99,
+    category: 'domain5',
+    categoryTitle: 'Domain 5: Security Program & Governance',
+    front: 'Business Continuity Planning (BCP)',
+    back: 'Comprehensive enterprise strategy ensuring critical business operations continue during and after a disruptive disaster.',
+    examTip: 'Encapsulates BIA, disaster recovery planning, and operational succession.'
+  },
+  {
+    id: 100,
+    category: 'domain5',
+    categoryTitle: 'Domain 5: Security Program & Governance',
+    front: 'Acceptable Use Policy (AUP)',
+    back: 'A foundational security policy defining what employees are and are not permitted to do on company hardware, networks, and internet connections.',
+    examTip: 'Must be signed by all employees during onboarding to ensure legal enforceability.'
   }
 ];

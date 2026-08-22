@@ -43,7 +43,7 @@ export function DeckSelector({ onSelectCategory, onStartQuiz, progressMap, flash
           </h1>
           
           <p className="text-slate-300 text-sm md:text-base leading-relaxed">
-            Practice 80 enhanced flashcards structured across all 5 official V7 exam domains. Featuring corrected cryptography placement, resilience metrics, all 6 security controls, and forensics.
+            Practice 100 comprehensive flashcards structured across all 5 official V7 exam domains, providing complete standalone exam mastery. Featuring corrected cryptography placement, resilience metrics, all 6 security controls, and forensics.
           </p>
 
           <div className="pt-4 flex flex-wrap items-center gap-4">
@@ -52,7 +52,7 @@ export function DeckSelector({ onSelectCategory, onStartQuiz, progressMap, flash
               className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-semibold px-6 py-3 rounded-xl shadow-lg shadow-blue-600/30 flex items-center space-x-2"
             >
               <Play className="w-4 h-4 fill-current" />
-              <span>Study All 80 Cards</span>
+              <span>Study All 100 Cards</span>
             </Button>
 
             <Button

@@ -59,7 +59,7 @@ export default function Home() {
 
   const categoryTitle = selectedCategory && selectedCategory !== 'all'
     ? FLASHCARDS.find(f => f.category === selectedCategory)?.categoryTitle || 'All Decks'
-    : 'All 80 Flashcards Deck (Official V7 Aligned)';
+    : 'All 100 Flashcards Deck (Official V7 Aligned)';
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans selection:bg-blue-500 selection:text-white">
