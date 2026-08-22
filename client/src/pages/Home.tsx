@@ -14,7 +14,7 @@ export default function Home() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [progressMap, setProgressMap] = useState<Record<number, ProgressStatus>>(() => {
     try {
-      const saved = localStorage.getItem('sy0_701_progress_v1');
+      const saved = localStorage.getItem('sy0_701_progress_v2');
       return saved ? JSON.parse(saved) : {};
     } catch {
       return {};
@@ -24,7 +24,7 @@ export default function Home() {
   // Save progress to localStorage
   useEffect(() => {
     try {
-      localStorage.setItem('sy0_701_progress_v1', JSON.stringify(progressMap));
+      localStorage.setItem('sy0_701_progress_v2', JSON.stringify(progressMap));
     } catch (e) {
       console.error('Failed to save progress', e);
     }
@@ -40,7 +40,7 @@ export default function Home() {
   const handleResetProgress = () => {
     if (window.confirm('Are you sure you want to reset all your study progress?')) {
       setProgressMap({});
-      localStorage.removeItem('sy0_701_progress_v1');
+      localStorage.removeItem('sy0_701_progress_v2');
     }
   };
 
@@ -58,7 +58,7 @@ export default function Home() {
 
   const categoryTitle = selectedCategory && selectedCategory !== 'all'
     ? FLASHCARDS.find(f => f.category === selectedCategory)?.categoryTitle || 'All Decks'
-    : 'All 50 Flashcards Deck';
+    : 'All 80 Flashcards Deck (Official V7 Aligned)';
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans selection:bg-blue-500 selection:text-white">
@@ -113,10 +113,10 @@ export default function Home() {
       {/* Footer */}
       <footer className="border-t border-slate-900 bg-slate-950 py-8 text-center text-xs text-slate-500 space-y-2">
         <div className="flex items-center justify-center space-x-2">
-          <Shield className="w-4 h-4 text-blue-500" />
-          <span className="font-semibold text-slate-400">CompTIA Security+ SY0-701 Interactive Command Center</span>
+          <Shield className="w-4 h-4 text-emerald-500" />
+          <span className="font-semibold text-slate-400">CompTIA Security+ SY0-701 Official V7 Aligned Command Center</span>
         </div>
-        <p>Built for high-yield exam preparation, active recall, and continuous progress tracking.</p>
+        <p>Built with corrected domain placement, resilience metrics, all 6 security controls, and forensics.</p>
       </footer>
     </div>
   );

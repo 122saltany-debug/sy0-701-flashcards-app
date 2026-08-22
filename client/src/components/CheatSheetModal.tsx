@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, Shield, Zap, Terminal, Server, FileText } from 'lucide-react';
+import { ArrowLeft, Shield, Zap, Terminal, Server, FileText, CheckCircle2 } from 'lucide-react';
 
 interface CheatSheetModalProps {
   onBack: () => void;
@@ -17,39 +17,43 @@ export function CheatSheetModal({ onBack }: CheatSheetModalProps) {
           <ArrowLeft className="w-4 h-4 mr-2" />
           <span>Back to Decks</span>
         </Button>
-        <span className="text-xs font-semibold px-3 py-1 rounded-full bg-blue-500/10 text-blue-300 border border-blue-500/30">
-          SY0-701 Ultimate Reference Guide
+        <span className="text-xs font-semibold px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-300 border border-emerald-500/30">
+          SY0-701 Official V7 Aligned Cheat Sheet
         </span>
       </div>
 
       {/* Header Card */}
       <div className="bg-slate-900 border border-slate-800 rounded-3xl p-8 shadow-2xl space-y-4">
         <div className="flex items-center space-x-3">
-          <div className="p-3 rounded-2xl bg-blue-600/20 border border-blue-500/30 text-blue-400">
+          <div className="p-3 rounded-2xl bg-emerald-600/20 border border-emerald-500/30 text-emerald-400">
             <Zap className="w-6 h-6" />
           </div>
           <div>
-            <h1 className="text-2xl md:text-3xl font-extrabold text-white">CompTIA Security+ SY0-701 Cheat Sheet</h1>
-            <p className="text-xs md:text-sm text-slate-400">High-yield exam triggers, instant port mappings, and golden rules.</p>
+            <h1 className="text-2xl md:text-3xl font-extrabold text-white">CompTIA Security+ SY0-701 Enhanced Cheat Sheet</h1>
+            <p className="text-xs md:text-sm text-slate-400">Corrected V7 domain placements, resilience metrics, all 6 control types, and risk formulas.</p>
           </div>
         </div>
 
-        {/* Golden Rules */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4">
-          <div className="bg-slate-800/60 p-4 rounded-2xl border border-slate-700 space-y-1">
-            <span className="text-xs font-bold text-amber-400 uppercase tracking-wider block">Rule 1</span>
-            <h4 className="text-white font-bold text-sm">Boring = Better</h4>
-            <p className="text-xs text-slate-400 leading-relaxed">If torn between a clever technical fix and a formal policy/process, pick the boring procedural answer.</p>
-          </div>
-          <div className="bg-slate-800/60 p-4 rounded-2xl border border-slate-700 space-y-1">
-            <span className="text-xs font-bold text-amber-400 uppercase tracking-wider block">Rule 2</span>
-            <h4 className="text-white font-bold text-sm">Containment FIRST</h4>
-            <p className="text-xs text-slate-400 leading-relaxed">In any active incident question, your first immediate action is to isolate and contain the host.</p>
-          </div>
-          <div className="bg-slate-800/60 p-4 rounded-2xl border border-slate-700 space-y-1">
-            <span className="text-xs font-bold text-amber-400 uppercase tracking-wider block">Rule 3</span>
-            <h4 className="text-white font-bold text-sm">Continuous Verification</h4>
-            <p className="text-xs text-slate-400 leading-relaxed">Zero Trust does not mean no access; it means explicit per-request verification of every context.</p>
+        {/* Enhancements Banner */}
+        <div className="p-4 rounded-2xl bg-blue-950/40 border border-blue-500/30 space-y-2">
+          <span className="text-xs font-bold text-blue-300 uppercase tracking-wider block">Official V7 Objective Alignment Highlights:</span>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs text-slate-300">
+            <div className="flex items-center space-x-2">
+              <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+              <span><strong>Cryptography</strong> relocated to Domain 1</span>
+            </div>
+            <div className="flex items-center space-x-2">
+              <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+              <span><strong>Resilience & Recovery</strong> added to Domain 3</span>
+            </div>
+            <div className="flex items-center space-x-2">
+              <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+              <span>All <strong>6 Security Control Types</strong> included</span>
+            </div>
+            <div className="flex items-center space-x-2">
+              <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+              <span><strong>Forensics & Order of Volatility</strong> in Domain 4</span>
+            </div>
           </div>
         </div>
       </div>
@@ -58,7 +62,7 @@ export function CheatSheetModal({ onBack }: CheatSheetModalProps) {
       <div className="bg-slate-900 border border-slate-800 rounded-3xl p-8 shadow-2xl space-y-6">
         <h3 className="text-xl font-bold text-white flex items-center space-x-2">
           <Terminal className="w-5 h-5 text-blue-400" />
-          <span>Must-Memorize Sequences</span>
+          <span>Must-Memorize Sequences & Frameworks</span>
         </h3>
 
         <div className="space-y-4">
@@ -73,7 +77,14 @@ export function CheatSheetModal({ onBack }: CheatSheetModalProps) {
           <div className="p-4 rounded-2xl bg-slate-800/50 border border-slate-700/80 space-y-2">
             <span className="text-xs font-bold text-blue-400 block uppercase">2. Order of Volatility (Forensics)</span>
             <p className="text-sm text-slate-200 font-mono">
-              CPU Cache / Registers → RAM / Routing Tables → Swap / Pagefile → Hard Drive / SSD → Remote Logs
+              CPU Cache / Registers → RAM / Routing Tables → Swap / Pagefile → Storage Drives → Remote Logs
+            </p>
+          </div>
+
+          <div className="p-4 rounded-2xl bg-slate-800/50 border border-slate-700/80 space-y-2">
+            <span className="text-xs font-bold text-amber-400 block uppercase">3. Governance Hierarchy (All 4 Levels)</span>
+            <p className="text-sm text-slate-200 font-mono">
+              Policy (Why) → Standard (Mandatory What) → Procedure (How-to) → Guideline (Optional Best Practice)
             </p>
           </div>
         </div>
@@ -83,7 +94,7 @@ export function CheatSheetModal({ onBack }: CheatSheetModalProps) {
       <div className="bg-slate-900 border border-slate-800 rounded-3xl p-8 shadow-2xl space-y-6">
         <h3 className="text-xl font-bold text-white flex items-center space-x-2">
           <Server className="w-5 h-5 text-purple-400" />
-          <span>Essential Exam Ports</span>
+          <span>Essential Exam Ports & Risk Formulas</span>
         </h3>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -105,6 +116,13 @@ export function CheatSheetModal({ onBack }: CheatSheetModalProps) {
               </span>
             </div>
           ))}
+        </div>
+
+        <div className="p-4 rounded-2xl bg-slate-800/60 border border-slate-700 space-y-2">
+          <span className="text-xs font-bold text-emerald-400 uppercase tracking-wider block">Quantitative Risk Formula</span>
+          <p className="text-sm text-white font-mono font-semibold">
+            SLE (Single Loss Expectancy) × ARO (Annual Rate of Occurrence) = ALE (Annualized Loss Expectancy)
+          </p>
         </div>
       </div>
     </div>
