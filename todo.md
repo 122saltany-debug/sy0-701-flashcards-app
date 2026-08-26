@@ -25,3 +25,11 @@
 - [x] Add an objective-level coverage/audit view and study prioritization.
 - [x] Run build checks and verify desktop/mobile presentation.
 - [ ] Save and deliver the CompTIA-aligned checkpoint.
+
+## Latest Reddit refresh
+- [x] Search recent public Reddit SY0-701 discussions and note dates and recurring topics.
+- [x] Open multiple relevant Reddit sources and save traceable findings.
+- [x] Compare current findings with the existing Reddit Insights module.
+- [x] Add original current-topic scenarios and updated source labels.
+- [x] Run build checks and verify the refreshed module on desktop and mobile.
+- [ ] Save and deliver the latest Reddit-informed checkpoint.

@@ -102,6 +102,51 @@ export const REDDIT_PRACTICE_QUESTIONS: RedditPracticeQuestion[] = [
     answer: 1,
     explanation: 'PBQ success depends on translating the requirements into a constrained solution. “Most appropriate” usually requires balancing security, cost, usability, and operational fit; adding unnecessary controls can violate the scenario.',
     trap: 'Follow the instructions literally. More technology is not automatically the best answer, and a single qualifier can change the required action.'
+  },
+  {
+    id: 11,
+    theme: 'Architecture placement and segmentation',
+    prompt: 'A public-facing web server must be isolated from a protected database network while still allowing the application to reach the database. Which design is most appropriate?',
+    options: ['Place both servers on the internal user VLAN', 'Place the web server in a DMZ and restrict the application-to-database flow with explicit rules', 'Place the database directly on the internet', 'Disable segmentation to reduce latency'],
+    answer: 1,
+    explanation: 'A DMZ limits exposure of the public service, while restricted east-west rules protect the database. The design applies segmentation, least privilege, and controlled placement together.',
+    trap: 'Architecture questions often test where a component belongs before asking which product to deploy. Start with trust zones and required flows.'
+  },
+  {
+    id: 12,
+    theme: 'Ports in a practical scenario',
+    prompt: 'A firewall log shows a management connection using TCP 22 from an administrator workstation to a Linux server. Which service is most likely being used?',
+    options: ['SSH', 'DNS', 'SNMP', 'RDP'],
+    answer: 0,
+    explanation: 'TCP 22 is the standard port associated with SSH, which provides encrypted remote administration. Recognizing the port is useful, but always confirm the service and direction in the scenario.',
+    trap: 'Do not answer from the word “management” alone. Pair the protocol clue with the port and the operating-system context.'
+  },
+  {
+    id: 13,
+    theme: 'Policy, audit, and assessment order',
+    prompt: 'An organization wants to determine whether its written access-control policy is actually being followed before selecting a remediation project. What should it perform first?',
+    options: ['A compliance or control assessment using evidence', 'Immediately replace the identity provider', 'Declare a disaster-recovery event', 'Delete all historical access logs'],
+    answer: 0,
+    explanation: 'An assessment gathers evidence and compares actual practice with the policy or control requirement. The result can then guide remediation and prioritize investment.',
+    trap: 'Separate assessment from remediation. First establish the condition with evidence; do not jump straight to a technology replacement.'
+  },
+  {
+    id: 14,
+    theme: 'Cloud responsibility boundaries',
+    prompt: 'A company uses a SaaS email platform. The provider secures the underlying service, but the customer must still configure users, permissions, retention, and data-sharing settings. Which concept explains this division?',
+    options: ['Shared responsibility model', 'Air gap', 'Data remanence', 'Container escape'],
+    answer: 0,
+    explanation: 'The shared responsibility model divides security duties between the cloud provider and customer. The exact boundary changes by SaaS, PaaS, or IaaS, but customer configuration remains important.',
+    trap: '“The provider hosts it” does not mean the customer has no security responsibility. Identify the service model and the control being discussed.'
+  },
+  {
+    id: 15,
+    theme: 'PBQ-style prioritization under time pressure',
+    prompt: 'During a simulated incident, an analyst sees a suspicious endpoint, a compromised administrator account, and a business-critical server. The instructions ask for the safest immediate sequence. What reasoning should guide the first actions?',
+    options: ['Contain the highest-risk active paths, preserve evidence where required, and follow the stated sequence', 'Reimage every system immediately without documentation', 'Ignore the administrator account until the end', 'Disable all network connectivity permanently'],
+    answer: 0,
+    explanation: 'A sound response balances containment, evidence preservation, business impact, and the task’s explicit constraints. The exact sequence depends on the scenario, so disciplined reading is more reliable than memorizing one universal order.',
+    trap: 'Student reports often emphasize PBQs, but there is no universal “always choose this first” shortcut. Follow the scenario, scope, and authorization.'
   }
 ];
 
@@ -110,5 +155,9 @@ export const REDDIT_SOURCES = [
   { title: "I just passed the Security+ SY0-701, don't do what I did", url: 'https://www.reddit.com/r/CompTIA/comments/18982rw/i_just_passed_the_security_sy0701_dont_do_what_i/' },
   { title: 'Passed SY0-701 | AMA / What I did', url: 'https://www.reddit.com/r/CompTIA/comments/1dsp6ff/passed_sy0701_ama_what_i_did/' },
   { title: 'Passed CompTIA Security+ SY0-701 exam today and here are my tips', url: 'https://www.reddit.com/r/CompTIA/comments/1gu3j1y/passed_comptia_security_sy0701_exam_today_and/' },
-  { title: 'Passed Security+ SY0-701, from mid-70s practice tests to a 780', url: 'https://www.reddit.com/r/CompTIA/comments/1pv2vuk/passed_security_701_from_mid70s_practice_tests/' }
+  { title: 'Passed Security+ SY0-701, from mid-70s practice tests to a 780', url: 'https://www.reddit.com/r/CompTIA/comments/1pv2vuk/passed_security_701_from_mid70s_practice_tests/' },
+  { title: 'Passed Security+ SY0-701 with 789! (2-Week Study Journey)', url: 'https://www.reddit.com/r/CompTIA/comments/1qavagp/passed_security_sy0701_with_789_2week_study/' },
+  { title: 'CompTIA Security+ SY0-701 | Just passed my exam!', url: 'https://www.reddit.com/r/CompTIA/comments/1t3ky32/comptia_security_sy0701_just_passed_my_exam/' },
+  { title: 'I passed my Security+ SY0-701! Honest experience', url: 'https://www.reddit.com/r/CompTIA/comments/1squw5k/i_passed_my_security_701_heres_my_honest/' },
+  { title: 'How I passed CompTIA Sec+ SY0-701', url: 'https://www.reddit.com/r/CompTIA/comments/1sfac5j/how_a_redneck_like_me_passed_comptia_sec_sy0701/' }
 ];
