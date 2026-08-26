@@ -12,7 +12,7 @@ import { Shield } from 'lucide-react';
 type ProgressStatus = 'mastered' | 'review' | 'unstudied';
 
 export default function Home() {
-  const [activeTab, setActiveTab] = useState<'decks' | 'study' | 'quiz' | 'cheatsheet' | 'qa' | 'reddit'>('decks');
+  const [activeTab, setActiveTab] = useState<'decks' | 'study' | 'review' | 'quiz' | 'cheatsheet' | 'qa' | 'reddit'>('decks');
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [progressMap, setProgressMap] = useState<Record<number, ProgressStatus>>(() => {
     try {
@@ -58,6 +58,10 @@ export default function Home() {
     ? FLASHCARDS.filter(f => f.category === selectedCategory)
     : FLASHCARDS;
 
+  const reviewCards = FLASHCARDS.filter(card => progressMap[card.id] === 'review');
+  const unstudiedCards = FLASHCARDS.filter(card => !progressMap[card.id]);
+  const queueCards = reviewCards.length > 0 ? reviewCards : unstudiedCards;
+
   const categoryTitle = selectedCategory && selectedCategory !== 'all'
     ? FLASHCARDS.find(f => f.category === selectedCategory)?.categoryTitle || 'All Decks'
     : 'All 100 Flashcards Deck (Official V7 Aligned)';
@@ -80,6 +84,7 @@ export default function Home() {
           <DeckSelector
             onSelectCategory={handleSelectCategory}
             onStartQuiz={() => setActiveTab('quiz')}
+            onStartReview={() => setActiveTab('review')}
             progressMap={progressMap}
             flashcards={FLASHCARDS}
           />
@@ -93,6 +98,16 @@ export default function Home() {
               setActiveTab('decks');
               setSelectedCategory(null);
             }}
+            progressMap={progressMap}
+            onUpdateProgress={handleUpdateProgress}
+          />
+        )}
+
+        {activeTab === 'review' && (
+          <FlashcardViewer
+            cards={queueCards}
+            categoryTitle={reviewCards.length > 0 ? 'Review Queue: Needs Review' : 'Review Queue: Start with Unstudied Cards'}
+            onBack={() => setActiveTab('decks')}
             progressMap={progressMap}
             onUpdateProgress={handleUpdateProgress}
           />

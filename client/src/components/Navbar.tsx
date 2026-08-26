@@ -2,8 +2,8 @@ import { Button } from '@/components/ui/button';
 import { Shield, BookOpen, Play, FileText, CheckCircle2, RotateCcw, ShieldAlert, MessageCircle } from 'lucide-react';
 
 interface NavbarProps {
-  activeTab: 'decks' | 'study' | 'quiz' | 'cheatsheet' | 'qa' | 'reddit';
-  setActiveTab: (tab: 'decks' | 'study' | 'quiz' | 'cheatsheet' | 'qa' | 'reddit') => void;
+  activeTab: 'decks' | 'study' | 'review' | 'quiz' | 'cheatsheet' | 'qa' | 'reddit';
+  setActiveTab: (tab: 'decks' | 'study' | 'review' | 'quiz' | 'cheatsheet' | 'qa' | 'reddit') => void;
   masteredCount: number;
   totalCount: number;
   onResetProgress: () => void;
@@ -50,6 +50,18 @@ export function Navbar({ activeTab, setActiveTab, masteredCount, totalCount, onR
           >
             <BookOpen className="w-4 h-4" />
             <span>Study Decks</span>
+          </button>
+
+          <button
+            onClick={() => setActiveTab('review')}
+            className={`flex items-center space-x-2 px-3 py-2 rounded-lg text-xs md:text-sm font-medium transition-all ${
+              activeTab === 'review'
+                ? 'bg-emerald-600 text-white shadow-md shadow-emerald-600/30'
+                : 'text-slate-300 hover:text-white hover:bg-slate-700/50'
+            }`}
+          >
+            <CheckCircle2 className="w-4 h-4 text-emerald-300" />
+            <span>Review Queue</span>
           </button>
 
           <button

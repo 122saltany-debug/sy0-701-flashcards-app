@@ -5,11 +5,12 @@ import { Button } from '@/components/ui/button';
 interface DeckSelectorProps {
   onSelectCategory: (categoryId: string) => void;
   onStartQuiz: () => void;
+  onStartReview: () => void;
   progressMap: Record<number, 'mastered' | 'review' | 'unstudied'>;
   flashcards: Flashcard[];
 }
 
-export function DeckSelector({ onSelectCategory, onStartQuiz, progressMap, flashcards }: DeckSelectorProps) {
+export function DeckSelector({ onSelectCategory, onStartQuiz, onStartReview, progressMap, flashcards }: DeckSelectorProps) {
   const getIcon = (iconName: string) => {
     switch (iconName) {
       case 'ShieldCheck': return <ShieldCheck className="w-6 h-6 text-blue-400" />;
@@ -56,6 +57,15 @@ export function DeckSelector({ onSelectCategory, onStartQuiz, progressMap, flash
             </Button>
 
             <Button
+              onClick={onStartReview}
+              variant="outline"
+              className="border-emerald-500/30 bg-emerald-500/10 text-emerald-200 hover:bg-emerald-500/20 hover:text-white px-6 py-3 rounded-xl font-semibold flex items-center space-x-2"
+            >
+              <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+              <span>{totalReview > 0 ? `Review ${totalReview} Priority Cards` : 'Start First Review Session'}</span>
+            </Button>
+
+            <Button
               onClick={onStartQuiz}
               variant="outline"
               className="border-slate-700 bg-slate-800/80 text-slate-200 hover:bg-slate-700 hover:text-white px-6 py-3 rounded-xl font-semibold flex items-center space-x-2"
@@ -80,6 +90,21 @@ export function DeckSelector({ onSelectCategory, onStartQuiz, progressMap, flash
             <span className="text-xs text-slate-400 block mb-1">Needs Review</span>
             <span className="text-2xl font-bold text-amber-400">{totalReview}</span>
           </div>
+        </div>
+      </div>
+
+      <div className="grid gap-4 md:grid-cols-3">
+        <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-4">
+          <span className="text-xs uppercase tracking-widest text-slate-500">Next best action</span>
+          <p className="mt-2 text-sm font-semibold text-white">{totalReview > 0 ? 'Clear your review queue before adding new cards.' : 'Start with one domain, then test yourself in Practice Quiz.'}</p>
+        </div>
+        <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-4">
+          <span className="text-xs uppercase tracking-widest text-slate-500">Readiness signal</span>
+          <p className="mt-2 text-sm font-semibold text-white">{overallPercentage >= 80 ? 'Strong card mastery. Keep scenario practice active.' : 'Build toward 80% mastery, then validate with mixed scenarios.'}</p>
+        </div>
+        <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-4">
+          <span className="text-xs uppercase tracking-widest text-slate-500">Study rhythm</span>
+          <p className="mt-2 text-sm font-semibold text-white">Review missed concepts, explain the why, and revisit them tomorrow.</p>
         </div>
       </div>
 
