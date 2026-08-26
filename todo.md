@@ -48,3 +48,10 @@
 - [x] Organize acronyms by domain or study theme for fast scanning.
 - [x] Run TypeScript/build checks and verify desktop/mobile readability.
 - [ ] Save and deliver the acronym-enhanced checkpoint.
+
+## Acronym audit and completion
+- [x] Compare the existing acronym entries with SY0-701 objective vocabulary and high-frequency terms.
+- [x] Identify omissions, ambiguous expansions, and distinctions that need correction.
+- [x] Add missing acronyms with accurate expansions and exam-oriented cues.
+- [x] Verify the expanded reference remains scannable on desktop and mobile.
+- [x] Run TypeScript/build checks and save a new checkpoint.
