@@ -1,9 +1,9 @@
 import { Button } from '@/components/ui/button';
-import { Shield, BookOpen, Play, FileText, CheckCircle2, RotateCcw, ShieldAlert } from 'lucide-react';
+import { Shield, BookOpen, Play, FileText, CheckCircle2, RotateCcw, ShieldAlert, MessageCircle } from 'lucide-react';
 
 interface NavbarProps {
-  activeTab: 'decks' | 'study' | 'quiz' | 'cheatsheet' | 'qa';
-  setActiveTab: (tab: 'decks' | 'study' | 'quiz' | 'cheatsheet' | 'qa') => void;
+  activeTab: 'decks' | 'study' | 'quiz' | 'cheatsheet' | 'qa' | 'reddit';
+  setActiveTab: (tab: 'decks' | 'study' | 'quiz' | 'cheatsheet' | 'qa' | 'reddit') => void;
   masteredCount: number;
   totalCount: number;
   onResetProgress: () => void;
@@ -74,6 +74,18 @@ export function Navbar({ activeTab, setActiveTab, masteredCount, totalCount, onR
           >
             <FileText className="w-4 h-4" />
             <span>Cheat Sheet</span>
+          </button>
+
+          <button
+            onClick={() => setActiveTab('reddit')}
+            className={`flex items-center space-x-2 px-3 py-2 rounded-lg text-xs md:text-sm font-medium transition-all ${
+              activeTab === 'reddit'
+                ? 'bg-amber-600 text-white shadow-md shadow-amber-600/30'
+                : 'text-slate-300 hover:text-white hover:bg-slate-700/50'
+            }`}
+          >
+            <MessageCircle className="w-4 h-4 text-amber-300" />
+            <span>Reddit Insights</span>
           </button>
 
           <button

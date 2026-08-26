@@ -6,12 +6,13 @@ import { FlashcardViewer } from '@/components/FlashcardViewer';
 import { QuizMode } from '@/components/QuizMode';
 import { CheatSheetModal } from '@/components/CheatSheetModal';
 import { QAReviewModal } from '@/components/QAReviewModal';
+import { RedditInsights } from '@/components/RedditInsights';
 import { Shield } from 'lucide-react';
 
 type ProgressStatus = 'mastered' | 'review' | 'unstudied';
 
 export default function Home() {
-  const [activeTab, setActiveTab] = useState<'decks' | 'study' | 'quiz' | 'cheatsheet' | 'qa'>('decks');
+  const [activeTab, setActiveTab] = useState<'decks' | 'study' | 'quiz' | 'cheatsheet' | 'qa' | 'reddit'>('decks');
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [progressMap, setProgressMap] = useState<Record<number, ProgressStatus>>(() => {
     try {
@@ -112,6 +113,12 @@ export default function Home() {
 
         {activeTab === 'qa' && (
           <QAReviewModal
+            onBack={() => setActiveTab('decks')}
+          />
+        )}
+
+        {activeTab === 'reddit' && (
+          <RedditInsights
             onBack={() => setActiveTab('decks')}
           />
         )}
