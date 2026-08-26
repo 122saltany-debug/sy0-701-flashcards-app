@@ -7,12 +7,13 @@ import { QuizMode } from '@/components/QuizMode';
 import { CheatSheetModal } from '@/components/CheatSheetModal';
 import { QAReviewModal } from '@/components/QAReviewModal';
 import { RedditInsights } from '@/components/RedditInsights';
+import { ObjectiveAudit } from '@/components/ObjectiveAudit';
 import { Shield } from 'lucide-react';
 
 type ProgressStatus = 'mastered' | 'review' | 'unstudied';
 
 export default function Home() {
-  const [activeTab, setActiveTab] = useState<'decks' | 'study' | 'review' | 'quiz' | 'cheatsheet' | 'qa' | 'reddit'>('decks');
+  const [activeTab, setActiveTab] = useState<'decks' | 'study' | 'review' | 'quiz' | 'cheatsheet' | 'qa' | 'reddit' | 'objectives'>('decks');
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [progressMap, setProgressMap] = useState<Record<number, ProgressStatus>>(() => {
     try {
@@ -135,6 +136,17 @@ export default function Home() {
         {activeTab === 'reddit' && (
           <RedditInsights
             onBack={() => setActiveTab('decks')}
+          />
+        )}
+
+        {activeTab === 'objectives' && (
+          <ObjectiveAudit
+            progressMap={progressMap}
+            onBack={() => setActiveTab('decks')}
+            onStartDomain={(domainId) => {
+              setSelectedCategory(domainId);
+              setActiveTab('study');
+            }}
           />
         )}
       </main>

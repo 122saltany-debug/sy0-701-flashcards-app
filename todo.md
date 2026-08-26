@@ -16,3 +16,12 @@
 - [x] Improve progress persistence and reset-safe UI feedback.
 - [x] Run TypeScript/build checks and verify desktop/mobile presentation.
 - [ ] Save and deliver a new improvement checkpoint.
+
+## CompTIA official-objective audit
+- [x] Retrieve the current official CompTIA SY0-701 objectives and source URL.
+- [x] Map every official domain and sub-objective to the current flashcard dataset.
+- [x] Save the coverage matrix and identify missing or miscategorized topics.
+- [x] Add missing objective topics and objective identifiers to the app.
+- [x] Add an objective-level coverage/audit view and study prioritization.
+- [x] Run build checks and verify desktop/mobile presentation.
+- [ ] Save and deliver the CompTIA-aligned checkpoint.

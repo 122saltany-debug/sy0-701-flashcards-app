@@ -1,5 +1,5 @@
 import { FLASHCARD_CATEGORIES, Flashcard } from '@/data/flashcards';
-import { ShieldCheck, AlertTriangle, Cloud, Terminal, Lock, Play, Sparkles, CheckCircle2, Award } from 'lucide-react';
+import { ShieldCheck, AlertTriangle, Cloud, Terminal, Lock, Play, Sparkles, CheckCircle2, Award, Crosshair, Activity, Radio } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 interface DeckSelectorProps {
@@ -29,11 +29,12 @@ export function DeckSelector({ onSelectCategory, onStartQuiz, onStartReview, pro
   return (
     <div className="space-y-8 py-8 animate-fadeIn">
       {/* Hero Banner */}
-      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-slate-900 via-slate-800 to-indigo-950 border border-slate-800 p-8 md:p-12 shadow-2xl">
+      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-950 via-slate-900 to-blue-950/80 border border-blue-500/20 p-8 md:p-12 shadow-2xl command-grid command-scanlines">
         <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
         
-        <div className="relative z-10 max-w-2xl space-y-4">
+        <div className="relative z-10 grid gap-10 lg:grid-cols-[minmax(0,1fr)_280px] items-start">
+          <div className="space-y-4">
           <div className="inline-flex items-center space-x-2 bg-blue-500/10 border border-blue-500/30 px-3 py-1 rounded-full text-blue-300 text-xs font-semibold tracking-wide">
             <Sparkles className="w-3.5 h-3.5 text-blue-400" />
             <span>SY0-701 OFFICIAL V7 ALIGNED EXAM SUITE</span>
@@ -50,7 +51,7 @@ export function DeckSelector({ onSelectCategory, onStartQuiz, onStartReview, pro
           <div className="pt-4 flex flex-wrap items-center gap-4">
             <Button
               onClick={() => onSelectCategory('all')}
-              className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-semibold px-6 py-3 rounded-xl shadow-lg shadow-blue-600/30 flex items-center space-x-2"
+              className="bg-blue-600 hover:bg-blue-500 text-white font-semibold px-6 py-3 rounded-xl shadow-lg shadow-blue-600/30 flex items-center space-x-2 transition-transform active:scale-[0.97]"
             >
               <Play className="w-4 h-4 fill-current" />
               <span>Study All 100 Cards</span>
@@ -76,6 +77,29 @@ export function DeckSelector({ onSelectCategory, onStartQuiz, onStartReview, pro
           </div>
         </div>
 
+        <aside className="relative hidden lg:block rounded-2xl border border-blue-400/20 bg-slate-950/70 p-5 shadow-2xl shadow-blue-950/40">
+          <div className="absolute inset-0 rounded-2xl border border-white/5 pointer-events-none" />
+          <div className="flex items-center justify-between border-b border-slate-800 pb-3">
+            <span className="module-label text-blue-300">Mission readout</span>
+            <Radio className="h-4 w-4 text-teal-300" />
+          </div>
+          <div className="mt-5 flex items-center justify-center">
+            <div className="relative flex h-36 w-36 items-center justify-center rounded-full border border-blue-400/30 bg-blue-500/5">
+              <div className="absolute inset-4 rounded-full border border-teal-400/20" />
+              <div className="absolute inset-10 rounded-full border border-blue-400/20" />
+              <Crosshair className="h-10 w-10 text-blue-300" />
+              <span className="absolute -top-2 rounded bg-slate-950 px-2 font-mono text-[10px] text-teal-300">READY</span>
+            </div>
+          </div>
+          <div className="mt-5 space-y-3 font-mono text-[11px]">
+            <div className="flex justify-between"><span className="text-slate-500">CARD_MASTERY</span><span className="text-teal-300">{overallPercentage}%</span></div>
+            <div className="flex justify-between"><span className="text-slate-500">REVIEW_QUEUE</span><span className={totalReview > 0 ? 'text-amber-300' : 'text-slate-300'}>{String(totalReview).padStart(2, '0')}</span></div>
+            <div className="flex justify-between"><span className="text-slate-500">OBJECTIVES</span><span className="text-blue-300">5 DOMAINS</span></div>
+          </div>
+          <div className="mt-5 flex items-center gap-2 border-t border-slate-800 pt-4 text-xs text-slate-400"><Activity className="h-3.5 w-3.5 text-teal-300" /> Local progress tracking active</div>
+        </aside>
+        </div>
+
         {/* Quick Stats Overlay Box */}
         <div className="mt-8 pt-8 border-t border-slate-700/60 grid grid-cols-3 gap-4 text-center">
           <div className="bg-slate-900/60 p-4 rounded-2xl border border-slate-800">
@@ -95,15 +119,15 @@ export function DeckSelector({ onSelectCategory, onStartQuiz, onStartReview, pro
 
       <div className="grid gap-4 md:grid-cols-3">
         <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-4">
-          <span className="text-xs uppercase tracking-widest text-slate-500">Next best action</span>
+          <span className="module-label text-blue-300">Next best action</span>
           <p className="mt-2 text-sm font-semibold text-white">{totalReview > 0 ? 'Clear your review queue before adding new cards.' : 'Start with one domain, then test yourself in Practice Quiz.'}</p>
         </div>
         <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-4">
-          <span className="text-xs uppercase tracking-widest text-slate-500">Readiness signal</span>
+          <span className="module-label text-teal-300">Readiness signal</span>
           <p className="mt-2 text-sm font-semibold text-white">{overallPercentage >= 80 ? 'Strong card mastery. Keep scenario practice active.' : 'Build toward 80% mastery, then validate with mixed scenarios.'}</p>
         </div>
         <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-4">
-          <span className="text-xs uppercase tracking-widest text-slate-500">Study rhythm</span>
+          <span className="module-label text-amber-300">Study rhythm</span>
           <p className="mt-2 text-sm font-semibold text-white">Review missed concepts, explain the why, and revisit them tomorrow.</p>
         </div>
       </div>
@@ -111,7 +135,7 @@ export function DeckSelector({ onSelectCategory, onStartQuiz, onStartReview, pro
       {/* Category Decks Section */}
       <div className="space-y-4">
         <div className="flex items-center justify-between">
-          <h2 className="text-xl font-bold text-white tracking-wide">Official V7 Exam Domains</h2>
+          <h2 className="text-xl font-bold text-white tracking-wide"><span className="mr-2 font-mono text-xs text-blue-300">SYS.DOMAIN_MAP</span>Official V7 Exam Domains</h2>
           <span className="text-xs text-slate-400 font-medium">Click any domain to start focused practice</span>
         </div>
 
@@ -125,7 +149,7 @@ export function DeckSelector({ onSelectCategory, onStartQuiz, onStartReview, pro
               <div
                 key={cat.id}
                 onClick={() => onSelectCategory(cat.id)}
-                className="group relative bg-slate-900/90 hover:bg-slate-850 border border-slate-800 hover:border-slate-700 rounded-2xl p-6 transition-all duration-300 shadow-xl hover:shadow-2xl hover:-translate-y-1 cursor-pointer overflow-hidden flex flex-col justify-between"
+                className="group relative bg-slate-900/90 hover:bg-slate-850 border border-slate-800 hover:border-blue-500/40 rounded-2xl p-6 transition-all duration-300 shadow-xl hover:shadow-2xl hover:-translate-y-1 cursor-pointer overflow-hidden flex flex-col justify-between command-scanlines"
               >
                 <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${cat.color}`} />
 

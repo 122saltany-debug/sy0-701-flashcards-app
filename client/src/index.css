@@ -1,6 +1,8 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+/* Design direction: SY0-701 Security Operations Command Center. Use electric blue for action, teal for verified mastery, amber for review, and rose for objective gaps. */
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -119,6 +121,13 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-family: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
+  }
+  h1, h2, h3, h4 {
+    font-family: 'Space Grotesk', 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
+  }
+  .font-mono, code, kbd {
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
   }
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),
@@ -134,6 +143,20 @@
 }
 
 @layer components {
+  /* Command-center texture: fixed, low-contrast, and disabled for reduced-motion users only through opacity, never layout. */
+  .command-grid {
+    background-image: linear-gradient(rgba(76, 124, 190, 0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(76, 124, 190, 0.06) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+  .command-scanlines {
+    background-image: repeating-linear-gradient(0deg, rgba(255,255,255,0.018) 0, rgba(255,255,255,0.018) 1px, transparent 1px, transparent 4px);
+  }
+  .module-label {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
   /**
    * Custom container utility that centers content and adds responsive padding.
    *

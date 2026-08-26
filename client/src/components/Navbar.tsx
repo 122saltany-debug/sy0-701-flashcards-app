@@ -1,9 +1,9 @@
 import { Button } from '@/components/ui/button';
-import { Shield, BookOpen, Play, FileText, CheckCircle2, RotateCcw, ShieldAlert, MessageCircle } from 'lucide-react';
+import { Shield, BookOpen, Play, FileText, CheckCircle2, RotateCcw, ShieldAlert, MessageCircle, Target } from 'lucide-react';
 
 interface NavbarProps {
-  activeTab: 'decks' | 'study' | 'review' | 'quiz' | 'cheatsheet' | 'qa' | 'reddit';
-  setActiveTab: (tab: 'decks' | 'study' | 'review' | 'quiz' | 'cheatsheet' | 'qa' | 'reddit') => void;
+  activeTab: 'decks' | 'study' | 'review' | 'quiz' | 'cheatsheet' | 'qa' | 'reddit' | 'objectives';
+  setActiveTab: (tab: 'decks' | 'study' | 'review' | 'quiz' | 'cheatsheet' | 'qa' | 'reddit' | 'objectives') => void;
   masteredCount: number;
   totalCount: number;
   onResetProgress: () => void;
@@ -86,6 +86,18 @@ export function Navbar({ activeTab, setActiveTab, masteredCount, totalCount, onR
           >
             <FileText className="w-4 h-4" />
             <span>Cheat Sheet</span>
+          </button>
+
+          <button
+            onClick={() => setActiveTab('objectives')}
+            className={`flex items-center space-x-2 px-3 py-2 rounded-lg text-xs md:text-sm font-medium transition-all ${
+              activeTab === 'objectives'
+                ? 'bg-cyan-600 text-white shadow-md shadow-cyan-600/30'
+                : 'text-slate-300 hover:text-white hover:bg-slate-700/50'
+            }`}
+          >
+            <Target className="w-4 h-4 text-cyan-300" />
+            <span>Objectives</span>
           </button>
 
           <button
