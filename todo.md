@@ -41,3 +41,10 @@
 - [x] Add original comment-informed guidance to Reddit Insights.
 - [x] Run build checks and verify the updated module on desktop and mobile.
 - [ ] Save and deliver the comments-informed checkpoint.
+
+## Cheat Sheet acronym expansion
+- [x] Audit the current in-app Cheat Sheet sections and available space.
+- [x] Add high-yield SY0-701 acronyms with expansions and quick distinctions.
+- [x] Organize acronyms by domain or study theme for fast scanning.
+- [x] Run TypeScript/build checks and verify desktop/mobile readability.
+- [ ] Save and deliver the acronym-enhanced checkpoint.

@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, Shield, Zap, Terminal, Server, FileText, CheckCircle2 } from 'lucide-react';
+import { ArrowLeft, Shield, Zap, Terminal, Server, FileText, CheckCircle2, BookOpen } from 'lucide-react';
 
 interface CheatSheetModalProps {
   onBack: () => void;
@@ -55,6 +55,58 @@ export function CheatSheetModal({ onBack }: CheatSheetModalProps) {
               <span><strong>Forensics & Order of Volatility</strong> in Domain 4</span>
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* Acronym Quick Reference */}
+      <div className="bg-slate-900 border border-slate-800 rounded-3xl p-8 shadow-2xl space-y-6">
+        <h3 className="text-xl font-bold text-white flex items-center space-x-2">
+          <BookOpen className="w-5 h-5 text-cyan-400" />
+          <span>High-Yield Acronym Quick Reference</span>
+        </h3>
+        <p className="text-sm leading-relaxed text-slate-400">Use the expansion, purpose, and contrast together. The exam often tests whether you can apply an acronym to a scenario—not merely recognize its letters.</p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+          {[
+            { term: 'AAA', meaning: 'Authentication, Authorization, Accounting', cue: 'Who are you? What may you do? What did you do?' },
+            { term: 'ABAC / RBAC', meaning: 'Attribute-Based / Role-Based Access Control', cue: 'ABAC uses characteristics and context; RBAC uses job roles.' },
+            { term: 'ACL / ACE', meaning: 'Access Control List / Access Control Entry', cue: 'An ACL is the list; an ACE is one rule inside it.' },
+            { term: 'DAC / MAC', meaning: 'Discretionary / Mandatory Access Control', cue: 'DAC is owner-controlled; MAC is centrally enforced by labels.' },
+            { term: 'FDE / SED', meaning: 'Full-Disk Encryption / Self-Encrypting Drive', cue: 'Both protect data at rest; SED performs encryption in drive hardware.' },
+            { term: 'PKI / CA / RA', meaning: 'Public Key Infrastructure / Certificate Authority / Registration Authority', cue: 'PKI is the ecosystem; CA issues certificates; RA validates identity.' },
+            { term: 'CSR / CRL / OCSP', meaning: 'Certificate Signing Request / Certificate Revocation List / Online Certificate Status Protocol', cue: 'Request a cert; check revocation by list; check status online.' },
+            { term: 'CIA', meaning: 'Confidentiality, Integrity, Availability', cue: 'The core security objectives; do not confuse integrity with authentication.' },
+            { term: 'RTO / RPO / MTTR', meaning: 'Recovery Time Objective / Recovery Point Objective / Mean Time To Repair', cue: 'RTO is downtime; RPO is acceptable data loss; MTTR is repair time.' },
+            { term: 'HA / DR / BCP', meaning: 'High Availability / Disaster Recovery / Business Continuity Planning', cue: 'HA reduces interruption; DR restores IT; BCP keeps critical business functions operating.' },
+            { term: 'MFA / SSO / IdP', meaning: 'Multifactor Authentication / Single Sign-On / Identity Provider', cue: 'MFA uses factor categories; SSO reduces repeated logins; IdP provides identity services.' },
+            { term: 'SAML / OAuth / OIDC', meaning: 'Security Assertion Markup Language / delegated authorization / OpenID Connect', cue: 'SAML commonly carries enterprise authentication assertions; OAuth delegates access; OIDC adds identity on OAuth.' },
+            { term: 'RADIUS / TACACS+', meaning: 'Remote Authentication Dial-In User Service / Terminal Access Controller Access-Control System Plus', cue: 'RADIUS commonly supports network access; TACACS+ commonly supports device administration.' },
+            { term: 'SIEM / SOAR', meaning: 'Security Information and Event Management / Security Orchestration, Automation and Response', cue: 'SIEM centralizes and correlates; SOAR coordinates and automates response.' },
+            { term: 'EDR / XDR / MDR', meaning: 'Endpoint Detection and Response / Extended Detection and Response / Managed Detection and Response', cue: 'EDR focuses endpoint telemetry; XDR correlates across layers; MDR is a managed service.' },
+            { term: 'IDS / IPS / WAF', meaning: 'Intrusion Detection / Intrusion Prevention / Web Application Firewall', cue: 'IDS alerts; IPS blocks inline; WAF protects web-application traffic.' },
+            { term: 'DLP / CASB', meaning: 'Data Loss Prevention / Cloud Access Security Broker', cue: 'DLP controls sensitive-data movement; CASB applies visibility and policy between users and cloud services.' },
+            { term: 'TTP / IOC / IOA', meaning: 'Tactics, Techniques and Procedures / Indicator of Compromise / Indicator of Attack', cue: 'TTP describes behavior; IOC is evidence of compromise; IOA signals malicious activity in progress.' },
+            { term: 'CVE / CVSS / CWE', meaning: 'Common Vulnerabilities and Exposures / Common Vulnerability Scoring System / Common Weakness Enumeration', cue: 'CVE names a vulnerability; CVSS scores severity; CWE classifies the underlying weakness.' },
+            { term: 'SAST / DAST / IAST', meaning: 'Static / Dynamic / Interactive Application Security Testing', cue: 'SAST analyzes code; DAST tests running apps externally; IAST observes execution from inside.' },
+            { term: 'SLE / ARO / ALE', meaning: 'Single Loss Expectancy / Annual Rate of Occurrence / Annualized Loss Expectancy', cue: 'Asset value × exposure factor = SLE; SLE × ARO = ALE.' },
+            { term: 'BIA / BCP / DRP', meaning: 'Business Impact Analysis / Business Continuity Plan / Disaster Recovery Plan', cue: 'BIA identifies impact and priorities; BCP sustains operations; DRP restores technology.' },
+            { term: 'SLA / MOU / NDA / SOC 2', meaning: 'Service-Level Agreement / Memorandum of Understanding / Non-Disclosure Agreement / Service Organization Control 2', cue: 'Service commitments, shared intent, confidentiality, and controls-reporting evidence.' },
+            { term: 'IoT / ICS / SCADA', meaning: 'Internet of Things / Industrial Control Systems / Supervisory Control and Data Acquisition', cue: 'Connected devices, industrial control environments, and supervisory monitoring/control.' },
+            { term: 'BYOD / MDM / COPE', meaning: 'Bring Your Own Device / Mobile Device Management / Corporate-Owned, Personally Enabled', cue: 'Personal device, centralized device control, or company-owned device allowed for personal use.' },
+            { term: 'NAC / ZTNA / ZTA', meaning: 'Network Access Control / Zero Trust Network Access / Zero Trust Architecture', cue: 'NAC evaluates admission; ZTNA brokers access; ZTA continuously verifies trust.' },
+            { term: 'API / SDK / CI-CD', meaning: 'Application Programming Interface / Software Development Kit / Continuous Integration and Continuous Delivery', cue: 'Interfaces, development tools, and an automated build/test/release pipeline.' },
+            { term: 'HTTP/S / SSH / SNMP', meaning: 'Web / Secure Shell / Simple Network Management Protocol', cue: 'Web traffic, encrypted administration, and device monitoring/management.' },
+            { term: 'DNS / DHCP / NTP', meaning: 'Domain Name System / Dynamic Host Configuration Protocol / Network Time Protocol', cue: 'Names, network configuration, and synchronized time for reliable logs.' },
+            { term: 'SMB / LDAP / LDAPS', meaning: 'Server Message Block / Lightweight Directory Access Protocol / LDAP over TLS', cue: 'File sharing, directory queries, and encrypted directory communication.' }
+          ].map((item) => (
+            <div key={item.term} className="p-4 rounded-2xl bg-slate-800/40 border border-slate-700/80 space-y-1">
+              <div className="flex items-baseline justify-between gap-3">
+                <span className="text-sm font-bold font-mono text-cyan-300">{item.term}</span>
+                <span className="text-[10px] uppercase tracking-wider text-slate-500">Know the distinction</span>
+              </div>
+              <p className="text-xs font-semibold text-slate-200">{item.meaning}</p>
+              <p className="text-xs leading-relaxed text-slate-400">{item.cue}</p>
+            </div>
+          ))}
         </div>
       </div>
 
