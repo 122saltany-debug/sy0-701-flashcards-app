@@ -41,7 +41,7 @@ export function RedditInsights({ onBack }: RedditInsightsProps) {
             <ShieldAlert className="h-3.5 w-3.5" /> REDDIT-INFORMED PRACTICE
           </div>
           <h1 className="text-3xl font-extrabold tracking-tight text-white md:text-5xl">What students say is confusing</h1>
-          <p className="text-sm leading-relaxed text-slate-300 md:text-base">These are original SY0-701 practice scenarios synthesized from recurring public Reddit discussions: tricky PBQs, word-sensitive prompts, malware and control selection, FDE versus remote wipe, terminology pairs, and choosing the best answer for the business.</p>
+          <p className="text-sm leading-relaxed text-slate-300 md:text-base">These are original SY0-701 practice scenarios synthesized from recurring public Reddit discussions and comment threads: acronym gaps, short but tricky wording, broad-concept judgment, PBQ preparation, malware and control selection, FDE versus remote wipe, terminology pairs, and choosing the best answer for the business.</p>
           <div className="flex items-start gap-3 rounded-2xl border border-amber-500/20 bg-slate-950/40 p-4 text-xs leading-relaxed text-amber-100/80">
             <Lightbulb className="mt-0.5 h-4 w-4 shrink-0 text-amber-300" />
             <span><strong className="text-amber-200">Important:</strong> Reddit reports are anecdotal and vary by exam form. This module does not contain recalled or copied live-exam questions and does not predict what will appear on your test.</span>
@@ -90,7 +90,7 @@ export function RedditInsights({ onBack }: RedditInsightsProps) {
 
       <section className="rounded-2xl border border-slate-800 bg-slate-900/60 p-6">
         <div className="mb-4 flex items-center gap-2"><ExternalLink className="h-4 w-4 text-blue-300" /><h2 className="text-lg font-bold text-white">Public discussion sources</h2></div>
-        <p className="mb-4 text-sm leading-relaxed text-slate-400">Use these links to review the context, not to memorize reported question details. The app’s scenarios above are original and intentionally rewritten for learning.</p>
+        <p className="mb-4 text-sm leading-relaxed text-slate-400">Use these links to review the context, not to memorize reported question details. The app’s scenarios above are original and intentionally rewritten for learning. The newest comment review found repeated advice to learn unfamiliar terms in context, practice alternate wording, cover broad objectives, and use PBQ pacing as a personal strategy—not an exam rule.</p>
         <div className="grid gap-2 md:grid-cols-2">
           {REDDIT_SOURCES.map(source => <a key={source.url} href={source.url} target="_blank" rel="noreferrer" className="rounded-xl border border-slate-800 bg-slate-950/50 px-3 py-2 text-xs text-blue-300 transition hover:border-blue-500/50 hover:text-blue-200">{source.title} <ExternalLink className="ml-1 inline h-3 w-3" /></a>)}
         </div>

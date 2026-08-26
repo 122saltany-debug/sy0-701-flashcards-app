@@ -33,3 +33,11 @@
 - [x] Add original current-topic scenarios and updated source labels.
 - [x] Run build checks and verify the refreshed module on desktop and mobile.
 - [ ] Save and deliver the latest Reddit-informed checkpoint.
+
+## Reddit comments review
+- [x] Review comments on multiple recent public SY0-701 Reddit reports.
+- [x] Save repeated comment themes, dates, and source URLs for traceability.
+- [x] Distinguish repeated practical advice from isolated anecdotes or restricted content.
+- [x] Add original comment-informed guidance to Reddit Insights.
+- [x] Run build checks and verify the updated module on desktop and mobile.
+- [ ] Save and deliver the comments-informed checkpoint.

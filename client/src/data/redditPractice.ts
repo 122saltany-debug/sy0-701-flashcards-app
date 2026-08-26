@@ -147,6 +147,42 @@ export const REDDIT_PRACTICE_QUESTIONS: RedditPracticeQuestion[] = [
     answer: 0,
     explanation: 'A sound response balances containment, evidence preservation, business impact, and the task’s explicit constraints. The exact sequence depends on the scenario, so disciplined reading is more reliable than memorizing one universal order.',
     trap: 'Student reports often emphasize PBQs, but there is no universal “always choose this first” shortcut. Follow the scenario, scope, and authorization.'
+  },
+  {
+    id: 16,
+    theme: 'Keyword clinic: concept before answer key',
+    prompt: 'After missing a practice question because you do not recognize an acronym, what is the strongest remediation step?',
+    options: ['Memorize the answer letter and move on', 'Define the term, explain its purpose, compare it with a close alternative, and apply it to a new scenario', 'Take only more timed tests without reviewing', 'Remove acronym-heavy cards from the deck'],
+    answer: 1,
+    explanation: 'Recent student comments repeatedly emphasized learning unfamiliar terminology in context. Definition, purpose, contrast, and application build transfer to new wording instead of dependence on a familiar question bank.',
+    trap: 'A high practice score can be misleading if it comes from answer recognition. Ask whether you could explain the term without seeing the options.'
+  },
+  {
+    id: 17,
+    theme: 'Short stem, tricky wording',
+    prompt: 'Two answer choices both seem technically secure, but one satisfies the stated business constraint with fewer unnecessary changes. Which principle should guide the selection?',
+    options: ['Choose the answer with the most technologies', 'Choose the best-fit control that satisfies the requirement, constraints, and risk', 'Choose the answer with the longest explanation', 'Choose the newest technology regardless of scope'],
+    answer: 1,
+    explanation: 'Student reports describe short prompts where qualifiers and business context determine the best answer. Security+ scenarios often test judgment, not just whether a control is generally secure.',
+    trap: 'Do not treat “more secure in theory” as automatically correct. Re-read qualifiers such as least, best, first, cost, availability, and operational impact.'
+  },
+  {
+    id: 18,
+    theme: 'Broad concepts versus deep detail',
+    prompt: 'A learner spends most study time memorizing obscure implementation details but cannot explain the purpose of common controls. What adjustment is most useful?',
+    options: ['Stop learning definitions and memorize ports only', 'Rebalance toward objective-level concepts, use cases, distinctions, and then add details where the objectives require them', 'Study only the hardest vendor-specific configurations', 'Avoid scenario questions until exam day'],
+    answer: 1,
+    explanation: 'Recent comments described the exam as broad in many multiple-choice items while PBQs may require more applied detail. A layered approach—purpose, use case, comparison, then implementation detail—supports both formats.',
+    trap: '“Surface-level” does not mean shallow memorization. You should still be able to explain why a control fits a scenario and how it differs from alternatives.'
+  },
+  {
+    id: 19,
+    theme: 'PBQ pacing is a personal strategy',
+    prompt: 'A candidate prefers to flag difficult multiple-choice items, return to them, and complete PBQs after the first pass. How should this strategy be used?',
+    options: ['Treat it as an official CompTIA requirement', 'Use it as an optional time-management plan, while following the actual task instructions and reserving time for review', 'Skip every PBQ because they are too risky', 'Spend unlimited time on the first difficult question'],
+    answer: 1,
+    explanation: 'A recent report described this pacing approach, but it is an individual strategy rather than an official rule. Candidates should choose a plan that prevents one question from consuming the exam and leaves time for PBQs and review.',
+    trap: 'Reddit timing reports vary. Never convert another candidate’s question count or sequence into a promise about your exam form.'
   }
 ];
 
@@ -159,5 +195,7 @@ export const REDDIT_SOURCES = [
   { title: 'Passed Security+ SY0-701 with 789! (2-Week Study Journey)', url: 'https://www.reddit.com/r/CompTIA/comments/1qavagp/passed_security_sy0701_with_789_2week_study/' },
   { title: 'CompTIA Security+ SY0-701 | Just passed my exam!', url: 'https://www.reddit.com/r/CompTIA/comments/1t3ky32/comptia_security_sy0701_just_passed_my_exam/' },
   { title: 'I passed my Security+ SY0-701! Honest experience', url: 'https://www.reddit.com/r/CompTIA/comments/1squw5k/i_passed_my_security_701_heres_my_honest/' },
-  { title: 'How I passed CompTIA Sec+ SY0-701', url: 'https://www.reddit.com/r/CompTIA/comments/1sfac5j/how_a_redneck_like_me_passed_comptia_sec_sy0701/' }
+  { title: 'How I passed CompTIA Sec+ SY0-701', url: 'https://www.reddit.com/r/CompTIA/comments/1sfac5j/how_a_redneck_like_me_passed_comptia_sec_sy0701/' },
+  { title: 'My CompTIA Security+ SY0-701 experience - passed with 775 (Aug 2026)', url: 'https://www.reddit.com/r/CompTIA_Security/comments/1vr24w1/my_comptia_security_sy0701_experience_passed_with/' },
+  { title: 'Just passed Security+ SY0-701! thoughts in comments (Aug 2026)', url: 'https://www.reddit.com/r/CompTIA_Security/comments/1vniywv/just_passed_security_syo701_thoughts_in_comments/' }
 ];
