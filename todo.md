@@ -55,3 +55,9 @@
 - [x] Add missing acronyms with accurate expansions and exam-oriented cues.
 - [x] Verify the expanded reference remains scannable on desktop and mobile.
 - [x] Run TypeScript/build checks and save a new checkpoint.
+
+## Exam Tips section
+- [x] Define rapid-review tips for wording, traps, PBQs, timing, and final review.
+- [x] Implement an Exam Tips view and add it to navigation.
+- [x] Verify content, build health, and desktop/mobile readability.
+- [ ] Save and deliver the Exam Tips checkpoint.

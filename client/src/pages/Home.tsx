@@ -8,12 +8,13 @@ import { CheatSheetModal } from '@/components/CheatSheetModal';
 import { QAReviewModal } from '@/components/QAReviewModal';
 import { RedditInsights } from '@/components/RedditInsights';
 import { ObjectiveAudit } from '@/components/ObjectiveAudit';
+import { ExamTips } from '@/components/ExamTips';
 import { Shield } from 'lucide-react';
 
 type ProgressStatus = 'mastered' | 'review' | 'unstudied';
 
 export default function Home() {
-  const [activeTab, setActiveTab] = useState<'decks' | 'study' | 'review' | 'quiz' | 'cheatsheet' | 'qa' | 'reddit' | 'objectives'>('decks');
+  const [activeTab, setActiveTab] = useState<'decks' | 'study' | 'review' | 'quiz' | 'cheatsheet' | 'qa' | 'reddit' | 'objectives' | 'tips'>('decks');
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [progressMap, setProgressMap] = useState<Record<number, ProgressStatus>>(() => {
     try {
@@ -148,6 +149,10 @@ export default function Home() {
               setActiveTab('study');
             }}
           />
+        )}
+
+        {activeTab === 'tips' && (
+          <ExamTips onBack={() => setActiveTab('decks')} />
         )}
       </main>
 
